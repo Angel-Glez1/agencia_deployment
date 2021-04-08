@@ -1,0 +1,15 @@
+h2.text-center Proximos Viajes
+//- Bloque donde mostramos las cards de los viajes
+.row.proximos-viajes 
+    each viaje in viajes    
+        .col-md-6.col-lg-4.mb-4 
+            .card 
+                img.card-img-top(src=`img/destinos_${viaje.imagen}.jpg`, alt="")
+                .card-body
+                    h2=viaje.imagen
+                    p 
+                        | #{viaje.fecha_ida} - #{viaje.fecha_vuelta}
+                    p   
+                        | #{viaje.disponibles} Disponibles
+                    p= viaje.descripcion.substr(0,100) + '...'
+                    a(href=`viajes/${viaje.slug}` ,class='btn btn-success btn-block') Mas info 
